@@ -1,0 +1,30 @@
+.hexpattern {
+  height: 100%;
+  width: 100%;
+  /* background-color: beige; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  25% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  50% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  75% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+.hexagon {
+  position: fixed;
+  animation: shake 5s infinite;
+}

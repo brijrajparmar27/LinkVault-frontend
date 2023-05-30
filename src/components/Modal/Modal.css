@@ -1,0 +1,58 @@
+/* backdrop  */
+.modal .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .popup {
+  padding: 30px;
+  border-radius: 20px;
+  background-color: var(--secondary);
+}
+label,
+textarea {
+  font-family: sans-serif;
+  font-size: 15px;
+  line-height: 28px;
+  padding: 0px 5px;
+  margin: 8px;
+}
+label {
+  font-weight: bold;
+}
+textarea {
+    margin-top: 20px;
+  color: white;
+  border: none;
+  outline: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    gray 28px
+  );
+  background-attachment: local;
+  background-color: rgba(0, 0, 0, 0.101);
+}
+.link_form {
+  display: flex;
+  flex-direction: column;
+}
+.link_form .link_form_submit {
+    margin-top: 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  height: 35px;
+  width: 100px;
+  background-color: #6a5acd;
+  color: white;
+}
