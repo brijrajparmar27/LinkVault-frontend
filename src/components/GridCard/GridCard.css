@@ -1,0 +1,59 @@
+.home .home_content .card_contain .grid-card {
+  cursor: pointer;
+  height: 270px;
+  width: 350px;
+  overflow: hidden;
+  display: grid;
+  gap: 5px;
+  grid-template-rows: 7fr 2fr 1fr;
+  grid-template-columns: 1fr 7fr;
+  grid-template-areas:
+    "thumb thumb"
+    "title title"
+    "favicon link";
+    color: white;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .home_content .card_contain .grid-card .thumb_contain {
+  grid-area: thumb;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .home_content .card_contain .grid-card .thumb_contain img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+.home .home_content .card_contain .grid-card .favicon-contain {
+  grid-area: favicon;
+  /* background-color: bisque; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .home_content .card_contain .grid-card .favicon-contain img{
+  height: 20px;
+}
+.home .home_content .card_contain .grid-card .title_contain {
+  grid-area: title;
+  /* background-color: blue; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: flex-start;
+  padding: 0px 5px;
+}
+.home .home_content .card_contain .grid-card .link_contain {
+  grid-area: link;
+  /* background-color: brown; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  color: gray;
+}

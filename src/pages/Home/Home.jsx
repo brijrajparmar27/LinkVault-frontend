@@ -1,29 +1,68 @@
 import React, { useState } from "react";
 import "./Home.css";
 import { BsViewList, BsPlusLg, BsGridFill } from "react-icons/bs";
-import Modal from "../../components/Modal/Modal";
+import Modal from "../../components/LinkModal/LinkModal";
 import { useLinkContext } from "../../Hooks/ContextHooks/useLinkContext";
+
+import io from "socket.io-client";
+
+import { useEffect } from "react";
+import useModalContext from "../../Hooks/ContextHooks/useModalContext";
+import ProcessModal from "../../components/ProcessModal/ProcessModal";
+import ListCard from "../../components/ListCard/ListCard";
+import GridCard from "../../components/GridCard/GridCard";
 
 export default function Home() {
   const { links, setLinks } = useLinkContext();
-  const [modal, setModal] = useState(false);
+  const [modalMSG, setModalMSG] = useState("Initializing...");
+  const [isList, setIsList] = useState(true);
 
-  const handleClick = (url) => {
-    const newTab = window.open();
-    newTab.opener = null;
-    newTab.location = url;
-  };
+  const {
+    LinkModalState,
+    setLinkModalState,
+    ProcessModalState,
+    setProcessModalState,
+  } = useModalContext();
+
+  useEffect(() => {
+    const socket = io("http://localhost:3000/");
+    // Event listener for 'myEvent' emitted from the server
+    socket.on("linkProcessEvent", (data) => {
+      console.log("Received data:", data);
+      setModalMSG(data);
+      // Do something with the received data
+    });
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   return (
     <div className="home">
-      {modal && <Modal setModal={setModal} />}
+      {LinkModalState && <Modal />}
+
+      {ProcessModalState && <ProcessModal modalMSG={modalMSG} />}
+
       <div className="home_header">
         <h1>LinkVault</h1>
         <div className="menus">
-          <BsGridFill className="view_switcher" />
+          <div
+            className="switcher_contain"
+            onClick={() => {
+              setIsList((prev) => !prev);
+            }}
+          >
+            {isList ? (
+              <BsViewList className="view_switcher" />
+            ) : (
+              <BsGridFill className="view_switcher" />
+            )}
+          </div>
           <button
             className="addLink_btn"
             onClick={() => {
-              setModal(true);
+              setLinkModalState(true);
             }}
           >
             <BsPlusLg />
@@ -35,30 +74,11 @@ export default function Home() {
         <div className="card_contain">
           {links &&
             links.map((each) => {
-              return (
-                <div
-                  className="card"
-                  onClick={() => {
-                    handleClick(each.url);
-                  }}
-                >
-                  <div className="thumb">
-                    <img src={each.thumb} alt="" className="thumb" />
-                  </div>
-                  <div className="title">
-                    <h2>
-                      {each.title.substr(0, 75)}
-                      {each.title.length > 75 ? "..." : ""}
-                    </h2>
-                  </div>
-                  <div className="url">
-                    <p className="link">
-                      {each.url.substr(0, 45)}
-                      {each.url.length > 45 ? "..." : ""}
-                    </p>
-                    <img src={each.favicon} alt="" className="favicon" />
-                  </div>
-                </div>
+              // return
+              return isList ? (
+                <ListCard each={each} />
+              ) : (
+                <GridCard each={each} />
               );
             })}
         </div>

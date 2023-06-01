@@ -1,5 +1,5 @@
 /* backdrop  */
-.modal .backdrop {
+/* .link-modal .backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,12 +10,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.modal .popup {
+} */
+/* .link-modal .popup {
   padding: 30px;
   border-radius: 20px;
   background-color: var(--secondary);
-}
+} */
 label,
 textarea {
   font-family: sans-serif;
