@@ -57,3 +57,13 @@
   align-items: center;
   color: gray;
 }
+
+@media only screen and (max-width: 700px) {
+  .home .home_content .card_contain .grid-card {
+      height: 160px;
+      width: 150px;
+  }
+  .home .home_content .card_contain .grid-card .favicon-contain img{
+    height: 10px;
+  }
+}

@@ -47,7 +47,7 @@ export default function LinkModal() {
           <h1>Add Links</h1>
           <p>Add multiple links</p>
           <form onSubmit={handleSubmit} className="link_form">
-            <textarea type="text" name="url" rows="8" cols="50" />
+            <textarea type="text" name="url"/>
             <input type="submit" value="submit" className="link_form_submit" />
           </form>
         </div>

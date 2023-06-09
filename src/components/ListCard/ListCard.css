@@ -24,6 +24,7 @@
 }
 .home .home_content .card_contain .list-card .title{
     margin-top: 5px;
+    margin-right: 5px;
     grid-area: title;
     /* background-color: aquamarine; */
     display: flex;
@@ -36,12 +37,22 @@
     /* background-color: blueviolet; */
     display: flex;
     gap: 5px;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
 }
 .home .home_content .card_contain .list-card .url .favicon{
     height: 20px;
     width: 20px;
-    margin-bottom: 5px;
 }
+
+@media only screen and (max-width: 700px) {
+    .home .home_content .card_contain .list-card{
+        height: 75px;
+        width: 350px;
+    }
+    .home .home_content .card_contain .list-card .url .favicon{
+        height: 10px;
+        width: 10px;
+    }
+  }

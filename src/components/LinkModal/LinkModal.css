@@ -11,11 +11,14 @@
   justify-content: center;
   align-items: center;
 } */
-/* .link-modal .popup {
-  padding: 30px;
-  border-radius: 20px;
-  background-color: var(--secondary);
-} */
+.link-modal .popup {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: auto;
+}
 label,
 textarea {
   font-family: sans-serif;
@@ -40,10 +43,12 @@ textarea {
   );
   background-attachment: local;
   background-color: rgba(0, 0, 0, 0.101);
+  height: 100%;
 }
 .link_form {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .link_form .link_form_submit {
     margin-top: 20px;
@@ -55,4 +60,12 @@ textarea {
   width: 100px;
   background-color: #6a5acd;
   color: white;
+}
+@media only screen and (max-width: 700px) {
+  .link-modal .popup {
+    width: 70%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+  }
 }
