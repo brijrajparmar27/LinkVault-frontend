@@ -13,15 +13,31 @@
 }
 .auth .auth_contents .left {
   flex: 1;
+  /* flex-shrink: 5; */
+  flex-basis: 0;
   /* background-color: aqua; */
+}
+.left .anim_contain{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .auth .auth_contents .right {
   flex: 1;
+  /* flex-shrink: 0; */
+  flex-basis: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   /* background-color: antiquewhite; */
   z-index: 2;
+}
+.right_branding{
+  display: none;
+  margin: 0px;
+  padding: 0px;
 }
 .auth .auth_contents .right .login_card {
   height: 70%;
@@ -55,6 +71,9 @@
   padding: 50px 0px;
   /* background-color: yellowgreen; */
 }
+.access_code{
+  text-align: right;
+}
 .auth .auth_contents .right .login_card .auth_form .inputfield {
   background-color: #1e2835;
   outline: none;
@@ -84,4 +103,23 @@
   cursor: pointer;
   margin-left: 4px;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 700px) {
+  .auth .auth_contents .left {
+    display: none;
+  }
+  .auth .auth_contents .right {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .auth .auth_contents .right .login_card {
+    height: 55%;
+    width: 100%;
+  }
+  .right_branding{
+    margin-bottom: 50px;
+    display: block;
+  }
 }
