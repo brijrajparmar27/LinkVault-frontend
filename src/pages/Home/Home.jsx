@@ -70,7 +70,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="home_content">
+      <div className="home_content" id="custom-scroll">
         <div className="card_contain">
           {links &&
             links.map((each) => {

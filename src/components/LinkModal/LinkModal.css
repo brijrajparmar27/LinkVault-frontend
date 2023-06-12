@@ -12,12 +12,14 @@
   align-items: center;
 } */
 .link-modal .popup {
-  width: 50%;
-  height: 50%;
+  /* width: 50%; */
+  /* height: 50%; */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   overflow-x: auto;
+  max-width: 90vw;
+  max-height: 85vh;
 }
 label,
 textarea {
@@ -43,7 +45,8 @@ textarea {
   );
   background-attachment: local;
   background-color: rgba(0, 0, 0, 0.101);
-  height: 100%;
+  height: 50vh;
+  width: 40vw;
 }
 .link_form {
   display: flex;
@@ -63,9 +66,13 @@ textarea {
 }
 @media only screen and (max-width: 700px) {
   .link-modal .popup {
-    width: 70%;
-    height: 50%;
+    /* width: 70%; */
+    /* height: 50%; */
     display: flex;
     flex-direction: column;
   }
+  textarea{
+    height: 50vh;
+    width: 65vw;
+  } 
 }

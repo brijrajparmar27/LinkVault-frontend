@@ -43,11 +43,11 @@ export default function LinkModal() {
   return (
     <div className="link-modal modal">
       <div className="backdrop" onClick={handleModalClose}>
-        <div className="popup" onClick={preventBubbling}>
+        <div className="popup" onClick={preventBubbling} id="custom-scroll">
           <h1>Add Links</h1>
           <p>Add multiple links</p>
           <form onSubmit={handleSubmit} className="link_form">
-            <textarea type="text" name="url"/>
+            <textarea type="text" name="url" className="link_area"/>
             <input type="submit" value="submit" className="link_form_submit" />
           </form>
         </div>
