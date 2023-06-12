@@ -24,6 +24,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .home .home_content .card_contain .grid-card .thumb_contain img {
     width: 100%;

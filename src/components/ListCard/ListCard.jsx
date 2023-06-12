@@ -15,8 +15,8 @@ export default function ListCard({ each }) {
         handleClick(each.url);
       }}
     >
-      <div className="thumb">
-        <img src={each.thumb?each.thumb:notFoundThumb} alt="" className="thumb" />
+      <div className="thumb" style={{backgroundImage:`url(${each.thumb?each.thumb:notFoundThumb})`}}>
+        {/* <img src={each.thumb?each.thumb:notFoundThumb} alt="" className="thumb" /> */}
       </div>
       <div className="title">
         <h2>

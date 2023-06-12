@@ -15,8 +15,8 @@ export default function GridCard({ each }) {
         handleClick(each.url);
       }}
     >
-      <div className="thumb_contain">
-        <img src={each.thumb?each.thumb:notFoundThumb} alt="" className="thumb" />
+      <div className="thumb_contain" style={{backgroundImage:`url(${each.thumb?each.thumb:notFoundThumb})`}}>
+        {/* <img src={each.thumb?each.thumb:notFoundThumb} alt="" className="thumb" /> */}
       </div>
       <div className="favicon-contain">
         <img src={each.favicon} alt="" />
