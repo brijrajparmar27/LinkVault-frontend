@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Hexagons from "../../components/Hexagons/Hexagons";
 import animation1 from "../../assets/Lottie/animation1.json"
 import animation2 from "../../assets/Lottie/animation2.json"
 import Lottie from "lottie-react";
 import "./Auth.css";
+import OTPInput from "react-otp-input";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [codeLogin,setCodeLogin] = useState(false);
+  const [otp,setOtp] = useState("");
   const toogleLogin = () => {
     setIsLogin((prev) => !prev);
   };
   const toogleCodelogin = ()=>{
     setCodeLogin(prev=>!prev);
   }
+  useEffect(()=>{
+    console.log(otp);
+  },[otp])
   return (
     <div className="auth">
       <Hexagons />
@@ -42,9 +47,9 @@ export default function Auth() {
                 <input type="text" className="inputfield" />
                 <p>Password</p>
                 <input type="password" className="inputfield" />
-                <p className="access_code">
+                {isLogin && <p className="access_code">
                   use <span className="toogle_login" onClick={toogleCodelogin}>Access code</span>
-                </p>
+                </p>}
                 <input
                   type="submit"
                   value={isLogin ? "Sign in" : "Register"}
@@ -58,9 +63,28 @@ export default function Auth() {
                 </div>
               </form>}
 
-              <div className="code_input_contain">
-                
-              </div>
+              {
+                codeLogin && <div className="code_input_contain">
+                  <p>Enter Access Code</p>
+                   <OTPInput
+                      value={otp}
+                      onChange={setOtp}
+                      numInputs={5}
+                      inputStyle={"otpinput"}
+                      containerStyle={"otpcontain"}
+                      inputType={"number"}
+                      renderInput={(props) => <input {...props} />}
+                    />
+                  {isLogin && <p className="access_code">
+                    use <span className="toogle_login" onClick={toogleCodelogin}>Password</span>
+                  </p>}
+                  <input
+                    type="submit"
+                    value={isLogin ? "Sign in" : "Register"}
+                    className="submit_btn"
+                  />
+                </div>
+              }
 
             </div>
           </div>
