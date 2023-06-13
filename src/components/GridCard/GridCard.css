@@ -28,6 +28,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  border-radius: 10px;
 }
 .home .home_content .card_contain .grid-card .thumb_contain img {
     width: 100%;
