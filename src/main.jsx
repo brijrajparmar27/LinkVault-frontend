@@ -7,13 +7,11 @@ import { LinkProvider } from "./contexts/LinkContext.jsx";
 import { ModalProvider } from "./contexts/ModalContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
+   <BrowserRouter>
       <LinkProvider>
         <ModalProvider>
           <App />
         </ModalProvider>
       </LinkProvider>
     </BrowserRouter>
-  </React.StrictMode>
 );
