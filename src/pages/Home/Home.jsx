@@ -11,18 +11,22 @@ import useModalContext from "../../Hooks/ContextHooks/useModalContext";
 import ProcessModal from "../../components/ProcessModal/ProcessModal";
 import ListCard from "../../components/ListCard/ListCard";
 import GridCard from "../../components/GridCard/GridCard";
+import useLinks from "../../Hooks/useLinks";
+import { useQuery } from "react-query";
 
 export default function Home() {
   const { links, setLinks } = useLinkContext();
   const [modalMSG, setModalMSG] = useState("Initializing...");
   const [isList, setIsList] = useState(true);
-
+  const {getLinks} = useLinks();
   const {
     LinkModalState,
     setLinkModalState,
     ProcessModalState,
     setProcessModalState,
   } = useModalContext();
+
+  const { isLoading, isError, data, error,refetch, isFetching } = useQuery("",getLinks);
 
   useEffect(() => {
     const socket = io("http://localhost:3000/");
@@ -38,6 +42,15 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(()=>{
+    console.log({isLoading,isError,data,isFetching});
+    if(!isFetching && !isError && data)
+    {
+      setLinks(data)
+      console.log("data set");
+    }
+  },[isLoading,isError,data,isFetching])
+
   return (
     <div className="home">
       {LinkModalState && <Modal />}
@@ -45,7 +58,7 @@ export default function Home() {
       {ProcessModalState && <ProcessModal modalMSG={modalMSG} />}
 
       <div className="home_header">
-        <h1>LinkVault</h1>
+        <h1 onClick={()=>{refetch()}}>LinkVault</h1>
         <div className="menus">
           <div
             className="switcher_contain"
