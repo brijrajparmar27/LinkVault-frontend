@@ -93,6 +93,9 @@
   outline: none;
   color: white;
 }
+.auth .auth_contents .right .login_card .submit_btn:disabled {
+  background-color: gray;
+}
 .auth_prompt {
   width: 100%;
   display: flex;

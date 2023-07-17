@@ -70,3 +70,22 @@
     gap: 20px;
     overflow-y: auto;
 }
+.lottie_contain{
+    /* background-color: aqua; */
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.lottie_contain .lottie{
+    width: 20% !important;
+    opacity: 40%;
+    z-index: 1;
+}
+@media only screen and (max-width: 700px) {
+    .lottie_contain .lottie{
+        width: 50% !important;
+    }   
+}

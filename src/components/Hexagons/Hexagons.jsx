@@ -39,7 +39,7 @@ export default function Hexagons() {
   };
   return (
     <div className="hexpattern">
-      {hexagons.map(() => {
+      {hexagons.map((each,index) => {
         return (
           <MdHexagon
             style={{
@@ -50,6 +50,7 @@ export default function Hexagons() {
               animationDelay: Math.random()*10 + 's'
             }}
             className="hexagon"
+            key={index}
           />
         );
       })}

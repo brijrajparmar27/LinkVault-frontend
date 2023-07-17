@@ -4,6 +4,9 @@
   background-color: var(--primary);
   display: flex;
 }
+.modal{
+  z-index: 10;
+}
 .backdrop {
   position: fixed;
   top: 0;
@@ -20,6 +23,16 @@
   padding: 30px;
   border-radius: 20px;
   background-color: var(--secondary);
+}
+.error{
+  background-color: rgb(255, 202, 202);
+  font-size: 13px;
+  text-align: center;
+  color: red;
+  padding: 3px;
+  border-radius: 3px;
+  height: fit-content;
+  width: 100%;
 }
 #custom-scroll::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);

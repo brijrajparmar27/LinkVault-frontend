@@ -13,7 +13,8 @@ import ListCard from "../../components/ListCard/ListCard";
 import GridCard from "../../components/GridCard/GridCard";
 import useLinks from "../../Hooks/useLinks";
 import { useQuery } from "react-query";
-
+import Lottie from "lottie-react";
+import Empty from "../../assets/Lottie/empty.json"
 export default function Home() {
   const { links, setLinks } = useLinkContext();
   const [modalMSG, setModalMSG] = useState("Initializing...");
@@ -26,7 +27,7 @@ export default function Home() {
     setProcessModalState,
   } = useModalContext();
 
-  const { isLoading, isError, data, error,refetch, isFetching } = useQuery("",getLinks);
+  const { isError, data, error, refetch, isFetching } = useQuery("getlinks",getLinks,{refetchOnWindowFocus: false});
 
   useEffect(() => {
     const socket = io("http://localhost:3000/");
@@ -43,13 +44,20 @@ export default function Home() {
   }, []);
 
   useEffect(()=>{
-    console.log({isLoading,isError,data,isFetching});
+    console.log({isError,data,isFetching});
     if(!isFetching && !isError && data)
     {
       setLinks(data)
+      data.map(each=>{
+        console.log(each.url);
+      })
       console.log("data set");
     }
-  },[isLoading,isError,data,isFetching])
+  },[data,isFetching])
+
+  useEffect(()=>{
+    console.log(links?true:false);
+  },[links])
 
   return (
     <div className="home">
@@ -84,17 +92,21 @@ export default function Home() {
         </div>
       </div>
       <div className="home_content" id="custom-scroll">
+      {links && links.length > 0 &&
         <div className="card_contain">
-          {links &&
-            links.map((each) => {
+            {links.map((each) => {
               // return
               return isList ? (
-                <ListCard each={each} />
+                <ListCard each={each} key={each._id}/>
               ) : (
-                <GridCard each={each} />
+                <GridCard each={each} key={each._id}/>
               );
             })}
         </div>
+            }
+            {
+              !isFetching && links && links.length < 1 && <div className="lottie_contain"><Lottie animationData={Empty} style={{width: "10%"}} className="lottie"/></div>
+            }
       </div>
     </div>
   );
