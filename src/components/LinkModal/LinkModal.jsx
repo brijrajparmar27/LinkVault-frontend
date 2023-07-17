@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import "./LinkModal.css";
-import API from "../../Axios/axios";
 import { useLinkContext } from "../../Hooks/ContextHooks/useLinkContext";
 import useModalContext from "../../Hooks/ContextHooks/useModalContext";
-import { useMutation, useQuery } from "react-query";
-import useLinks from "../../Hooks/useLinks";
-
+import usePostLinks from "../../Hooks/usePostLinks";
 
 export default function LinkModal() {
   const {
@@ -15,9 +12,7 @@ export default function LinkModal() {
     setProcessModalState,
   } = useModalContext();
   const { setLinks } = useLinkContext();
-  const {saveLinks} = useLinks();
-  // const { isError, data, error,refetch, isFetching } = useQuery("saveLink",saveLinks);
-  const saveLinksMutation = useMutation(saveLinks);
+  const { loading, error, saveLinks } = usePostLinks();
 
   const handleModalClose = () => {
     setLinkModalState(false);
@@ -35,20 +30,9 @@ export default function LinkModal() {
     let arr = links.split("\n").filter((item) => item !== "");
     console.log(arr);
     setProcessModalState(true);
-    const data = await saveLinksMutation.mutateAsync(arr);
-    // console.log(temp);
-    // API.post("/links", { data: JSON.stringify(arr) })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     setLinks((prev) => [...prev, ...res.data]);
-    //     setProcessModalState(false);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    setLinks(prev=>[...prev,...data])
+    const data = await saveLinks(arr);
+    setLinks((prev) => [...prev, ...data]);
     setProcessModalState(false);
-
   };
 
   return (
@@ -58,7 +42,7 @@ export default function LinkModal() {
           <h1>Add Links</h1>
           <p>Add multiple links</p>
           <form onSubmit={handleSubmit} className="link_form">
-            <textarea type="text" name="url" className="link_area"/>
+            <textarea type="text" name="url" className="link_area" />
             <input type="submit" value="submit" className="link_form_submit" />
           </form>
         </div>
