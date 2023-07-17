@@ -8,13 +8,13 @@ import { ModalProvider } from "./contexts/ModalContext.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-   <BrowserRouter>
-      <LinkProvider>
-        <ModalProvider>
-          <AuthProvider>
+  <BrowserRouter>
+    <LinkProvider>
+      <ModalProvider>
+        <AuthProvider>
           <App />
-          </AuthProvider>
-        </ModalProvider>
-      </LinkProvider>
-    </BrowserRouter>
+        </AuthProvider>
+      </ModalProvider>
+    </LinkProvider>
+  </BrowserRouter>
 );

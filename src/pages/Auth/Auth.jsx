@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Hexagons from "../../components/Hexagons/Hexagons";
 import animation1 from "../../assets/Lottie/animation1.json";
 import animation2 from "../../assets/Lottie/animation2.json";
@@ -36,8 +36,11 @@ export default function Auth() {
     }
     console.log("login");
     const user = await login(payload);
-    
-    console.log(user);
+    if (user) {
+      console.log(user);
+    } else {
+      console.log("login failed");
+    }
   };
 
   const handleSignin = async (e) => {

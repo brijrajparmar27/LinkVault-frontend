@@ -14,6 +14,8 @@ import GridCard from "../../components/GridCard/GridCard";
 import Lottie from "lottie-react";
 import Empty from "../../assets/Lottie/empty.json";
 import useGetLinks from "../../Hooks/useGetLinks";
+import useAuthContext from "../../Hooks/ContextHooks/useAuthContext";
+
 export default function Home() {
   const { links, setLinks } = useLinkContext();
   const [modalMSG, setModalMSG] = useState("Initializing...");
@@ -22,17 +24,13 @@ export default function Home() {
   const {
     LinkModalState,
     setLinkModalState,
-    ProcessModalState,
-    setProcessModalState,
+    ProcessModalState
   } = useModalContext();
+  const { logout } = useAuthContext();
 
   const populateData = async () => {
     const data = await getLinks();
     setLinks(data);
-    data.map((each) => {
-      console.log(each.url);
-    });
-    console.log("data set");
   };
 
   useEffect(() => {
@@ -53,10 +51,6 @@ export default function Home() {
     populateData();
   }, []);
 
-  useEffect(() => {
-    console.log(links ? true : false);
-  }, [links]);
-
   return (
     <div className="home">
       {LinkModalState && <Modal />}
@@ -64,13 +58,7 @@ export default function Home() {
       {ProcessModalState && <ProcessModal modalMSG={modalMSG} />}
 
       <div className="home_header">
-        <h1
-          onClick={() => {
-            refetch();
-          }}
-        >
-          LinkVault
-        </h1>
+        <h1 onClick={logout}>LinkVault</h1>
         <div className="menus">
           <div
             className="switcher_contain"
