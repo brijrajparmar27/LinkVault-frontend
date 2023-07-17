@@ -26,6 +26,15 @@ export default function Home() {
     setProcessModalState,
   } = useModalContext();
 
+  const populateData = async () => {
+    const data = await getLinks();
+    setLinks(data);
+    data.map((each) => {
+      console.log(each.url);
+    });
+    console.log("data set");
+  };
+
   useEffect(() => {
     const socket = io("http://localhost:3000/");
     // Event listener for 'myEvent' emitted from the server
@@ -40,13 +49,8 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(async () => {
-    const data = await getLinks();
-    setLinks(data);
-    data.map((each) => {
-      console.log(each.url);
-    });
-    console.log("data set");
+  useEffect(() => {
+    populateData();
   }, []);
 
   useEffect(() => {
