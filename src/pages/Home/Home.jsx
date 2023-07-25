@@ -21,11 +21,14 @@ export default function Home() {
   const [modalMSG, setModalMSG] = useState("Initializing...");
   const [isList, setIsList] = useState(true);
   const { getLinks, error, loading } = useGetLinks();
-  const {
-    LinkModalState,
-    setLinkModalState,
-    ProcessModalState
-  } = useModalContext();
+  const { LinkModalState, setLinkModalState, ProcessModalState } =
+    useModalContext();
+
+  const SOCKET_PATH =
+    import.meta.env.VITE_CONFIG_TYPE == "LOCAL"
+      ? import.meta.env.VITE_SOCKETS_LOCAL
+      : import.meta.env.VITE_SOCKETS_REMOTE;
+
   const { logout } = useAuthContext();
 
   const populateData = async () => {
@@ -34,7 +37,8 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const socket = io(import.meta.env.VITE_SOCKETS);
+    console.log(SOCKET_PATH);
+    const socket = io(SOCKET_PATH);
     // Event listener for 'myEvent' emitted from the server
     socket.on("linkProcessEvent", (data) => {
       console.log("Received data:", data);

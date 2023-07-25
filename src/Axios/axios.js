@@ -1,7 +1,12 @@
 import Axios from "axios";
 
-const API = Axios.create({
-    baseURL:import.meta.env.VITE_API
-})
+const API_PATH =
+  import.meta.env.VITE_CONFIG_TYPE == "LOCAL"
+    ? import.meta.env.VITE_API_LOCAL
+    : import.meta.env.VITE_API_REMOTE;
 
-export default API
+const API = Axios.create({
+  baseURL: API_PATH,
+});
+
+export default API;
