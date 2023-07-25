@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const socket = io("http://localhost:3000/");
+    const socket = io(import.meta.env.VITE_SOCKETS);
     // Event listener for 'myEvent' emitted from the server
     socket.on("linkProcessEvent", (data) => {
       console.log("Received data:", data);
