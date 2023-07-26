@@ -5,12 +5,7 @@ import useModalContext from "../../Hooks/ContextHooks/useModalContext";
 import usePostLinks from "../../Hooks/usePostLinks";
 
 export default function LinkModal() {
-  const {
-    LinkModalState,
-    setLinkModalState,
-    ProcessModalState,
-    setProcessModalState,
-  } = useModalContext();
+  const { LinkModalState, setLinkModalState } = useModalContext();
   const { setLinks } = useLinkContext();
   const { loading, error, saveLinks } = usePostLinks();
 
@@ -23,16 +18,13 @@ export default function LinkModal() {
   };
 
   const handleSubmit = async (e) => {
-    setLinkModalState(false);
-    setProcessModalState(true);
     e.preventDefault();
+    setLinkModalState(false);
     const links = e.target.url.value.trim();
     let arr = links.split("\n").filter((item) => item !== "");
     console.log(arr);
-    setProcessModalState(true);
     const data = await saveLinks(arr);
     setLinks((prev) => [...prev, ...data]);
-    setProcessModalState(false);
   };
 
   return (

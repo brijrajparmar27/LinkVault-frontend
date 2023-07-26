@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Home.css";
-import { BsViewList, BsPlusLg, BsGridFill } from "react-icons/bs";
 import Modal from "../../components/LinkModal/LinkModal";
 import { useLinkContext } from "../../Hooks/ContextHooks/useLinkContext";
 
@@ -8,28 +7,25 @@ import io from "socket.io-client";
 
 import { useEffect } from "react";
 import useModalContext from "../../Hooks/ContextHooks/useModalContext";
-import ProcessModal from "../../components/ProcessModal/ProcessModal";
 import ListCard from "../../components/ListCard/ListCard";
 import GridCard from "../../components/GridCard/GridCard";
 import Lottie from "lottie-react";
 import Empty from "../../assets/Lottie/empty.json";
 import useGetLinks from "../../Hooks/useGetLinks";
-import useAuthContext from "../../Hooks/ContextHooks/useAuthContext";
+import { toast } from "react-toastify";
+import Header from "../../components/Header/Header";
 
 export default function Home() {
   const { links, setLinks } = useLinkContext();
-  const [modalMSG, setModalMSG] = useState("Initializing...");
   const [isList, setIsList] = useState(true);
   const { getLinks, error, loading } = useGetLinks();
-  const { LinkModalState, setLinkModalState, ProcessModalState } =
-    useModalContext();
+  const { LinkModalState, setLinkModalState } = useModalContext();
+  const toastId = useRef(null);
 
   const SOCKET_PATH =
     import.meta.env.VITE_CONFIG_TYPE == "LOCAL"
       ? import.meta.env.VITE_SOCKETS_LOCAL
       : import.meta.env.VITE_SOCKETS_REMOTE;
-
-  const { logout } = useAuthContext();
 
   const populateData = async () => {
     const data = await getLinks();
@@ -42,7 +38,15 @@ export default function Home() {
     // Event listener for 'myEvent' emitted from the server
     socket.on("linkProcessEvent", (data) => {
       console.log("Received data:", data);
-      setModalMSG(data);
+      if (data.type === "SHOW") {
+        notify(data.message);
+      } else if (data.type === "MUTATE") {
+        mutate(data.message);
+      } else if (data.type === "ERROR") {
+        err(data.message);
+      } else if (data.type === "SUCCESS") {
+        success(data.message);
+      }
       // Do something with the received data
     });
     // Clean up the socket connection when the component unmounts
@@ -55,43 +59,38 @@ export default function Home() {
     populateData();
   }, []);
 
+  const notify = (msg) => (toastId.current = toast(msg, { autoClose: false }));
+  const mutate = (msg) =>
+    toast.update(toastId.current, {
+      render: msg,
+      type: toast.TYPE.DEFAULT,
+      autoClose: false,
+    });
+  const err = (msg) => {
+    toast.update(toastId.current, {
+      render: msg,
+      type: toast.TYPE.ERROR,
+      autoClose: true,
+    });
+  };
+  const success = (msg) => {
+    toast.update(toastId.current, {
+      render: msg,
+      type: toast.TYPE.SUCCESS,
+      autoClose: true,
+    });
+  };
+
   return (
     <div className="home">
       {LinkModalState && <Modal />}
 
-      {ProcessModalState && <ProcessModal modalMSG={modalMSG} />}
+      <Header setIsList={setIsList} isList={isList} setLinkModalState={setLinkModalState} />
 
-      <div className="home_header">
-        <h1 onClick={logout}>LinkVault</h1>
-        <div className="menus">
-          <div
-            className="switcher_contain"
-            onClick={() => {
-              setIsList((prev) => !prev);
-            }}
-          >
-            {isList ? (
-              <BsViewList className="view_switcher" />
-            ) : (
-              <BsGridFill className="view_switcher" />
-            )}
-          </div>
-          <button
-            className="addLink_btn"
-            onClick={() => {
-              setLinkModalState(true);
-            }}
-          >
-            <BsPlusLg />
-            Add Link
-          </button>
-        </div>
-      </div>
       <div className="home_content" id="custom-scroll">
         {links && links.length > 0 && (
           <div className="card_contain">
             {links.map((each) => {
-              // return
               return isList ? (
                 <ListCard each={each} key={each._id} />
               ) : (

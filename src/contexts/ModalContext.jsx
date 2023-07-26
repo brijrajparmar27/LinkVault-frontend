@@ -4,10 +4,9 @@ export const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
   const [LinkModalState, setLinkModalState] = useState(false);
-  const [ProcessModalState, setProcessModalState] = useState(false);
   return (
     <ModalContext.Provider
-      value={{ LinkModalState, setLinkModalState, ProcessModalState, setProcessModalState }}
+      value={{ LinkModalState, setLinkModalState}}
     >
       {children}
     </ModalContext.Provider>
