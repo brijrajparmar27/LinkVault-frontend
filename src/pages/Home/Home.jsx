@@ -25,14 +25,13 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (socket) {
-      ConnectSocket();
-      socket.on("linkProcessEvent", ({ type, message }) => {
-        HandleEmmit({ type, message });
-      });
-    }
+    const socket = ConnectSocket();
+    socket.on("linkProcessEvent", ({ type, message }) => {
+      console.log();
+      HandleEmmit({ type, message });
+    });
     () => DisconnectSocket();
-  }, [socket]);
+  }, []);
 
   useEffect(() => {
     populateData();
