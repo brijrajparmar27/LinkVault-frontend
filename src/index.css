@@ -1,45 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap");
 
-:root{
+:root {
   --primary: #1e2e3d;
   --secondary: #273444;
 }
 
-*{
+* {
   margin: 0px;
   padding: 0px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   box-sizing: border-box;
 }
 
-h1{
+h1 {
   font-weight: 400;
   color: white;
   font-size: 25px;
 }
 
-h2{
+h2 {
   font-weight: 300;
   color: white;
   font-size: 18px;
 }
 
-p{
+p {
   font-weight: 300;
   color: gray;
   font-size: 16px;
 }
 
+a {
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @media only screen and (max-width: 700px) {
-  h1{
+  h1 {
     font-size: 20px;
   }
-  
-  h2{
+
+  h2 {
     font-size: 12px;
   }
-  
-  p{
+
+  p {
     font-size: 8px;
-  } 
+  }
 }

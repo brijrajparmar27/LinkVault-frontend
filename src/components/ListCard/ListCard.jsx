@@ -2,20 +2,16 @@ import React from "react";
 import "./ListCard.css";
 
 export default function ListCard({ each }) {
-  const notFoundThumb = "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png";
-  const handleClick = (url) => {
-    const newTab = window.open();
-    newTab.opener = null;
-    newTab.location = url;
-  };
+  const notFoundThumb =
+    "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png";
   return (
-    <div
-      className="list-card"
-      onClick={() => {
-        handleClick(each.url);
-      }}
-    >
-      <div className="thumb" style={{backgroundImage:`url(${each.thumb?each.thumb:notFoundThumb})`}}>
+    <div className="list-card">
+      <div
+        className="thumb"
+        style={{
+          backgroundImage: `url(${each.thumb ? each.thumb : notFoundThumb})`,
+        }}
+      >
         {/* <img src={each.thumb?each.thumb:notFoundThumb} alt="" className="thumb" /> */}
       </div>
       <div className="title">

@@ -2,20 +2,16 @@ import React from "react";
 import "./GridCard.css";
 
 export default function GridCard({ each }) {
-  const notFoundThumb = "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png";
-  const handleClick = (url) => {
-    const newTab = window.open();
-    newTab.opener = null;
-    newTab.location = url;
-  };
+  const notFoundThumb =
+    "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png";
   return (
-    <div
-      className="grid-card"
-      onClick={() => {
-        handleClick(each.url);
-      }}
-    >
-      <div className="thumb_contain" style={{backgroundImage:`url(${each.thumb?each.thumb:notFoundThumb})`}}>
+    <div className="grid-card">
+      <div
+        className="thumb_contain"
+        style={{
+          backgroundImage: `url(${each.thumb ? each.thumb : notFoundThumb})`,
+        }}
+      >
         {/* <img src={each.thumb?each.thumb:notFoundThumb} alt="" className="thumb" /> */}
       </div>
       <div className="favicon-contain">
