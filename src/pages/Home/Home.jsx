@@ -1,11 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import Modal from "../../components/LinkModal/LinkModal";
 import { useLinkContext } from "../../Hooks/ContextHooks/useLinkContext";
-import { useEffect } from "react";
 import useModalContext from "../../Hooks/ContextHooks/useModalContext";
-import ListCard from "../../components/ListCard/ListCard";
-import GridCard from "../../components/GridCard/GridCard";
 import Lottie from "lottie-react";
 import Empty from "../../assets/Lottie/empty.json";
 import useGetLinks from "../../Hooks/useGetLinks";

@@ -1,3 +1,4 @@
+import "./Header.css"
 import useAuthContext from "../../Hooks/ContextHooks/useAuthContext";
 import { BsViewList, BsPlusLg, BsGridFill } from "react-icons/bs";
 
