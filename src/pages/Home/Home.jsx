@@ -59,7 +59,7 @@ export default function Home() {
     populateData();
   }, []);
 
-  const notify = (msg) => (toastId.current = toast(msg, { autoClose: false }));
+  const notify = (msg) => (toastId.current = toast(msg, { autoClose: false, type: "info", icon: true }));
   const mutate = (msg) =>
     toast.update(toastId.current, {
       render: msg,
