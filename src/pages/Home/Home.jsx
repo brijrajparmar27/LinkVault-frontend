@@ -27,7 +27,6 @@ export default function Home() {
   useEffect(() => {
     const socket = ConnectSocket();
     socket.on("linkProcessEvent", ({ type, message }) => {
-      console.log();
       HandleEmmit({ type, message });
     });
     () => DisconnectSocket();

@@ -7,21 +7,17 @@ const SOCKET_PATH =
     ? import.meta.env.VITE_SOCKETS_LOCAL
     : import.meta.env.VITE_SOCKETS_REMOTE;
 
-console.log(SOCKET_PATH);
 export const useSocket = () => {
   const toastId = useRef(null);
   const [socket, setSocket] = useState(null);
 
   const ConnectSocket = () => {
-    console.log(SOCKET_PATH);
     const socketInstance = io(SOCKET_PATH);
-    console.log(socketInstance, "socket connected");
     setSocket(socketInstance);
     return socketInstance;
   };
 
   const DisconnectSocket = () => {
-    console.log("socket disconnected");
     socket.disconnect();
     setSocket(null);
   };
