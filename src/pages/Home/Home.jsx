@@ -11,6 +11,7 @@ import Empty from "../../assets/Lottie/empty.json";
 import useGetLinks from "../../Hooks/useGetLinks";
 import Header from "../../components/Header/Header";
 import { useSocket } from "../../Hooks/useSocket";
+import { CardSwitcher } from "../../components/CardSwitcher/CardSwitcher";
 
 export default function Home() {
   const { links, setLinks } = useLinkContext();
@@ -49,13 +50,9 @@ export default function Home() {
       <div className="home_content" id="custom-scroll">
         {links && links.length > 0 && (
           <div className="card_contain">
-            {links.map((each) => {
-              return isList ? (
-                <ListCard each={each} key={each._id} />
-              ) : (
-                <GridCard each={each} key={each._id} />
-              );
-            })}
+            {links.map((each) => (
+              <CardSwitcher each={each} key={each._id} isList={isList} />
+            ))}
           </div>
         )}
         {!loading && !error && links && links.length < 1 && (
