@@ -62,4 +62,9 @@
         right: 10px;
         z-index: 9;
     }
+    .menus .addLink_btn{
+        padding: 10px 15px !important;
+        border-radius: 20px !important;
+        font-size: 18px !important;
+    }
 }
