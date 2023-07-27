@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Hexagons from "../../components/Hexagons/Hexagons";
-import animation1 from "../../assets/Lottie/animation1.json";
 import landscape from "../../assets/Lottie/landscape.json";
 import Lottie from "lottie-react";
 import "./Auth.css";
