@@ -17,6 +17,9 @@ const Header = ({ setIsList, setLinkModalState, isList }) => {
             value={isList ? "List" : "Grid"}
             onChange={(value) => {
               setIsList(value === "List" ? true : false);
+              setTimeout(() => {
+                close();
+              }, 400);
             }}
             size="lg"
             data={[
