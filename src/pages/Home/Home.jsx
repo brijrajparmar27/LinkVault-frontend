@@ -46,7 +46,7 @@ export default function Home() {
 
       <div className="home_content" id="custom-scroll">
         {links && links.length > 0 && (
-          <div className="card_contain">
+          <div className={isList?"card_contain list_card_contain":"card_contain grid_card_contain"}>
             {links.map((each) => (
               <CardSwitcher each={each} key={each._id} isList={isList} />
             ))}

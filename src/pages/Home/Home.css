@@ -32,11 +32,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     width: 90%;
     /* background-color: #6a5acd; */
     gap: 20px;
     overflow-y: auto;
+}
+
+.list_card_contain{
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.grid_card_contain{
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 .lottie_contain{
     /* background-color: aqua; */
@@ -66,5 +75,9 @@
         padding: 10px 15px !important;
         border-radius: 20px !important;
         font-size: 18px !important;
+    }
+    .home .home_content .card_contain{
+        width: 100% !important;
+        gap: 12px !important;
     }
 }
