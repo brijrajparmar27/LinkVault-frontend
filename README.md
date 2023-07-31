@@ -29,17 +29,24 @@ LinkVault is built using the following technologies and packages:
 
 ### Mobile Look
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;">
-
-![Mobile 1](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M1.jpeg)
-
-![Mobile 2](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M2.jpeg)
-
-![Mobile 3](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M3.jpeg)
-
-![Mobile 4](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M4.jpeg)
-
-</div>
+<table style="width: 100%;">
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M1.jpeg" alt="Mobile 1">
+    </td>
+    <td>
+      <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M2.jpeg" alt="Mobile 2">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M3.jpeg" alt="Mobile 3">
+    </td>
+    <td>
+      <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M4.jpeg" alt="Mobile 4">
+    </td>
+  </tr>
+</table>
 
 ### Desktop Look
 
