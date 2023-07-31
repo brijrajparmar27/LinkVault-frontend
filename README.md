@@ -50,16 +50,13 @@ LinkVault is built using the following technologies and packages:
 
 ### Desktop Look
 
-<ul style="list-style: none"><li>
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D1.jpeg" alt="Desktop 1">
-  </li><li>
+
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D2.jpeg" alt="Desktop 2">
-  </li><li>
+
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D3.jpeg" alt="Desktop 3">
-  </li><li>
+
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D4.jpeg" alt="Desktop 4">
-  </li>
-</ul>
 
 ## Installation
 
