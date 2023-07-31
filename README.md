@@ -29,13 +29,16 @@ LinkVault is built using the following technologies and packages:
 
 ### Mobile Look
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;">![Mobile 1](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M1.jpeg)![Mobile 1](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M2.jpeg)![Mobile 1](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M3.jpeg)![Mobile 1](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M4.jpeg)
-  <!-- Add more mobile screenshots as needed -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;">
+![Mobile 1](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M1.jpeg)
+![Mobile 2](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M2.jpeg)
+![Mobile 3](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M3.jpeg)
+![Mobile 4](https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/M4.jpeg)
 </div>
 
 ### Desktop Look
 
-<ul style="list-style: none;"><li>
+<ul style="list-style: none"><li>
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D1.jpeg" alt="Desktop 1">
   </li><li>
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D2.jpeg" alt="Desktop 2">
@@ -44,7 +47,6 @@ LinkVault is built using the following technologies and packages:
   </li><li>
     <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D4.jpeg" alt="Desktop 4">
   </li>
-  <!-- Add more desktop screenshots as needed -->
 </ul>
 
 ## Installation
