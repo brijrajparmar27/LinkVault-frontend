@@ -1,33 +1,60 @@
+# LinkVault Frontend
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/title.svg" width="50%"/>
 </p>
 
-Your link-saving sanctuary! Save, organize, and access your crucial links effortlessly. With React.js, Node.js, Express.js, and MongoDB, enjoy titles and thumbnails for easy identification. Thanks to Puppeteer, automatic thumbnails are just a click away! 🚀
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#screenshots">Screenshots</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
+
+> **Note**: This is the frontend repository of LinkVault. The backend code can be found at [LinkVault Backend](https://github.com/brijrajparmar27/LinkVault-backend).
+
+LinkVault is your personal link management solution that helps you save, organize, and access your important links with ease. Built with modern web technologies, it offers a seamless experience for managing your digital bookmarks with automatic thumbnail generation and a beautiful user interface.
 
 ## Features
 
-- Save and organize important links.
-- Automatic thumbnail generation using Puppeteer.
-- Display links with titles and thumbnails for easy identification.
-- Enjoy a user-friendly interface for efficient navigation.
+- 🔐 **Secure Authentication**: User-friendly signup and login system
+- 🔗 **Link Management**: Save and organize your important links
+- 🖼️ **Automatic Thumbnails**: Generate preview images automatically using Puppeteer
+- 📱 **Responsive Design**: Works seamlessly on both desktop and mobile devices
+- 🎨 **Modern UI**: Clean and intuitive interface built with Mantine
+- 🔍 **Easy Navigation**: Quick access to your saved links
+- 🔔 **Real-time Notifications**: Stay informed with toast notifications
+- 🎭 **Beautiful Animations**: Enhanced user experience with Lottie animations
 
-## Technologies Used
+## Tech Stack
 
-LinkVault is built using the following technologies and packages:
+### Frontend
 
-- React.js: A popular JavaScript library for building user interfaces.
-- Node.js: A server-side JavaScript runtime environment.
-- Express.js: A minimalistic web application framework for Node.js.
-- MongoDB: A NoSQL database for storing link data.
-- Puppeteer: A Node.js library for automating web page interactions, used for thumbnail generation.
-- Mantine: A React components library to speed up the development process.
-- Axios: A popular library for making HTTP requests.
-- Lottie: A library for adding beautiful animations to the project.
-- React Icons: A collection of popular icons as React components.
-- React OTP Input: A package for adding OTP (One-Time Password) input functionality.
-- React Toastify: A notification library for displaying alerts.
+- **React.js**: Modern UI development
+- **Vite**: Fast development and building
+- **Mantine**: Component library for rapid development
+- **React Router**: Client-side routing
+- **React Query**: Data fetching and caching
+- **Axios**: HTTP client
+- **React Toastify**: Toast notifications
+- **Lottie**: Animation library
+- **React Icons**: Icon library
+- **Socket.io Client**: Real-time communication
 
-### Mobile Look
+### Backend (Separate Repository)
+
+- **Node.js**: Runtime environment
+- **Express.js**: Web framework
+- **MongoDB**: Database
+- **Puppeteer**: Thumbnail generation
+- **Socket.io**: Real-time features
+
+## Screenshots
+
+### Mobile View
 
 <table style="width: 100%;">
   <tr>
@@ -48,51 +75,97 @@ LinkVault is built using the following technologies and packages:
   </tr>
 </table>
 
-### Desktop Look
+### Desktop View
 
    <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D1.jpeg" alt="Desktop 1">
    <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D2.jpeg" alt="Desktop 2">
    <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D3.jpeg" alt="Desktop 3">
    <img src="https://raw.githubusercontent.com/brijrajparmar27/LinkVault-frontend/master/repo_assets/D4.jpeg" alt="Desktop 4">
 
-## Installation
+## Getting Started
 
-To set up LinkVault locally, follow these steps:
+### Prerequisites
 
-1. Clone this repository to your local machine.
-2. Navigate to the project root directory.
-3. Install the required dependencies by running the following command:
+- Node.js (v14 or higher)
+- npm or yarn
+- MongoDB instance
+- Backend server running (see [LinkVault Backend](https://github.com/brijrajparmar27/LinkVault-backend) repository)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/brijrajparmar27/LinkVault-frontend.git
+   cd LinkVault-frontend
    ```
+
+2. Install dependencies:
+
+   ```bash
    npm install
    ```
-4. Set up your MongoDB connection and configure the necessary environment variables.
-5. Start the development server:
+
+3. Create a `.env` file in the root directory with the following variables:
+
+   ```env
+   VITE_API_URL=your_backend_url
    ```
+
+4. Start the development server:
+
+   ```bash
    npm run dev
    ```
-6. Access the application in your web browser at `http://localhost:3000`.
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Usage
 
-- Visit the LinkVault platform in your web browser.
-- Sign up or log in to your account.
-- Once logged in, you can start adding important links.
-- Provide the link URL, a relevant title, and let Puppeteer generate the thumbnail for you.
-- Save the link, and it will be displayed with its title and thumbnail for easy identification.
-- Enjoy quick access to your saved links whenever you need them!
+1. **Sign Up/Login**
 
-## Contributions
+   - Create a new account or log in with existing credentials
+   - Verify your email if required
 
-Contributions to LinkVault are welcome! If you find any issues or have suggestions for improvement, feel free to open an issue or create a pull request. Please ensure that any contributions adhere to the project's code of conduct.
+2. **Adding Links**
+
+   - Click the "Add Link" button
+   - Enter the URL and title
+   - The system will automatically generate a thumbnail
+   - Save the link to your collection
+
+3. **Managing Links**
+   - View all your saved links in a grid layout
+   - Click on links to open them
+   - Edit or delete links as needed
+   - Organize links with custom titles and categories
+
+## Contributing
+
+We welcome contributions to LinkVault! Here's how you can help:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
+
+Please ensure your code follows the existing style and includes appropriate tests.
 
 ## License
 
-The LinkVault project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-If you have any questions or need further assistance, you can reach out to the project maintainers:
+Brijrajsinh Parmar - [brijrajparmaromegab32@gmail.com](mailto:brijrajparmaromegab32@gmail.com)
 
-- [Brijrajsinh parmar](mailto:brijrajparmaromegab32@gmail.com)
+Project Links:
 
-Happy link-saving with LinkVault!
+- Frontend: [https://github.com/brijrajparmar27/LinkVault-frontend](https://github.com/brijrajparmar27/LinkVault-frontend)
+- Backend: [https://github.com/brijrajparmar27/LinkVault-backend](https://github.com/brijrajparmar27/LinkVault-backend)
+
+---
+
+⭐️ If you like this project, please give it a star on GitHub!
